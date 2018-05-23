@@ -1,0 +1,28 @@
+
+Babel是一个编译器，负责将源代码转换成指定的语法的目标代码，可以使之很好的在运行环境中执行我们的代码
+除此之外，我们还需要安装转码规则包，Babel支持很多语法的转码，比如我们想要将ES6转换成ES5，那么需要安装babel-preset-es2015包，如果我们想要编译React源码，
+就需要安装babel-preset-react
+清单1：安装Babel 脚手架
+npm install -g babel-cli
+清单2：当前目录执行下面这行命令安装ES6转码规则包：
+npm install babel-preset-es2015 --save-dev
+清单3:本地安装脚手架
+npm install babel-cli --save-dev
+
+
+
+最后，我们需要在package.json里面修改一下scripts：
+
+"scripts": {
+    "compile": "babel src --out-dir app --presets es2015"
+}
+修改完成之后，我们就可以使用npm来运行这个编译任务了，只需下面一条简单的指令即可：
+npm run compile
+
+
+常用命令：
+（1）我们可以编译整个目录的源文件，只需指定“–out-dir”参数即可：
+babel es6 --out-dir js --presets es2015
+
+(2)来运行babel的命令编译我们指定文件:
+babel es6/test.es6 --out-file js/test.js --presets es2015
